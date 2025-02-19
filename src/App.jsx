@@ -83,15 +83,15 @@ function App() {
       <div className="mx-4 md:container md:mx-auto my-5 rounded-xl p-5 bg-slate-300 min-h-[80vh] md:w-[45%]">
       <h1 className='font-bold text-center text-3xl'>iTask - Manage Your Todos At One Place</h1>
         <div className="addTodo my-5 flex flex-col gap-4">
-          <h2 className="text-2xl font-bold">Add a Todo</h2>
+          <h2 className="text-2xl font-bold text-center">Add a Todo</h2>
           <div className="flex">
 
           <input onChange={handleChange} value={todo} type="text" className='w-full rounded-lg px-5 py-1'/>
           <button onClick={handleAdd} disabled ={todo.length<=3} className='bg-violet-600 hover:bg-violet-900 disabled:bg-violet-500 p-4 mx-3 py-2 text-sm font-bold text-white rounded-md'>Save</button>
           </div>
         </div>
-        <input className='my-6' onChange={toggleFinished} type="checkbox" checked={showFinished} />
-        <label className='mx-2' htmlFor="show">Show Finished</label>
+        <input className='my-6 cursor-pointer' onChange={toggleFinished} type="checkbox" checked={showFinished} />
+        <label className='mx-2 hover:font-bold' htmlFor="show"  >Show Finished</label>
         <div className="h-[1px] bg-black opacity-20 w-[100] mx-auto my-1"></div>
           <h2 className='text-2xl font-bold'>Your Todos</h2>
           <div className="todos">
@@ -101,7 +101,7 @@ function App() {
           
            return (showFinished || !item.isCompleted) && <div key={item.id} className="todo flex my-3 justify-between">
             <div className='flex gap-5'>
-            <input name={item.id} onChange={handleCheckbox} type="checkbox" checked={item.isCompleted} id='' />
+            <input className='cursor-pointer' name={item.id} onChange={handleCheckbox} type="checkbox" checked={item.isCompleted} id='' />
             <div className={item.isCompleted?"line-through": ""}>{item.todo}</div>
             </div>
             <div className="buttons flex h-full">
